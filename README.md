@@ -40,7 +40,7 @@ FTCLib documentation - <https://ftclib.gitbook.io/ftclib>
 
     ```groovy
     dependencies {
-        implementation 'org.ftclib.ftclib:core:2.1.1'
+        implementation 'com.github.apolunar:FTCLibContinued:master'
     }
     ```
     
