@@ -1,6 +1,6 @@
 [versions]
-agp = "8.6.0-beta01"
-appcompatVersion = "1.2.0"
+agp = "8.5.1"
+appcompatVersion = "1.7.0"
 coreKtx = "1.13.1"
 ejmlSimple = "0.43.1"
 ftccommon = "9.2.0"
@@ -10,7 +10,7 @@ junitJupiterParams = "5.10.3"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
 appcompat = "1.7.0"
-kotlinStdlibJdk8 = "1.8.22"
+kotlinStdlibJdk8 = "1.9.20"
 material = "1.12.0"
 mockitoCore = "5.12.0"
 
