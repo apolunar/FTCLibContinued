@@ -1,0 +1,59 @@
+plugins {
+    alias(libs.plugins.android.library)
+}
+
+android {
+    namespace 'org.poten.ftclibcontinued'
+    compileSdk 34
+
+    defaultConfig {
+        minSdk 24
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation(libs.ejml.simple) {
+        exclude group: 'org.ejml', module: 'ejml-all'
+    }
+
+    testImplementation(platform(libs.junit.bom))
+    testImplementation(libs.junit.jupiter.api)
+    testRuntimeOnly(libs.junit.jupiter.engine)
+    testImplementation(libs.mockito.core)
+    testImplementation libs.junit.jupiter.params
+
+    compileOnly libs.inspection
+    compileOnly libs.ftc.robotcore
+    testImplementation libs.ftc.robotcore
+    compileOnly libs.robotserver
+    compileOnly libs.hardware
+    compileOnly libs.ftccommon
+    compileOnly libs.appcompat.v120
+    implementation libs.core.ktx
+    implementation libs.kotlin.stdlib.jdk8
+
+
+    implementation libs.appcompat
+    implementation libs.material
+    testImplementation libs.junit
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+}
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
