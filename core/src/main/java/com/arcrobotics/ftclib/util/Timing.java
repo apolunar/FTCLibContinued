@@ -18,9 +18,9 @@ public class Timing {
      */
     public static class Timer {
         private ElapsedTime time;
-        private long timerLength;
+        private final long timerLength;
         private long pauseTime; // in nanoseconds, regardless of unit
-        private TimeUnit unit;
+        private final TimeUnit unit;
         private boolean timerOn;
 
         /**
@@ -123,8 +123,8 @@ public class Timing {
      */
     public class Rate {
 
-        private ElapsedTime time;
-        private long rate;
+        private final ElapsedTime time;
+        private final long rate;
 
         public Rate(long rateMillis) {
             rate = rateMillis;

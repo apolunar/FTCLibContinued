@@ -2,14 +2,13 @@ package com.arcrobotics.ftclib.hardware;
 
 import com.arcrobotics.ftclib.geometry.Rotation2d;
 import com.qualcomm.hardware.bosch.BNO055IMU;
-import com.qualcomm.hardware.bosch.JustLoggingAccelerationIntegrator;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
 public class RevIMU extends GyroEx {
 
-    private BNO055IMU revIMU;
+    private final BNO055IMU revIMU;
 
     /***
      * Heading relative to starting position

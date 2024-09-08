@@ -2,9 +2,9 @@ package com.arcrobotics.ftclib.gamepad;
 
 public class TriggerReader implements KeyReader {
 
-    private GamepadEx gamepad;
+    private final GamepadEx gamepad;
 
-    private GamepadKeys.Trigger trigger;
+    private final GamepadKeys.Trigger trigger;
 
     /**
      * Last state of the button
@@ -19,7 +19,7 @@ public class TriggerReader implements KeyReader {
     /**
      * Current threshold
      **/
-    private double threshold;
+    private final double threshold;
 
     /**
      * Initializes controller variables
@@ -35,12 +35,8 @@ public class TriggerReader implements KeyReader {
         this.gamepad = gamepad;
         this.trigger = trigger;
         this.threshold = threshold;
-        
-        if (this.gamepad.getTrigger(trigger) > this.threshold) {
-            currState = true;
-        } else {
-            currState = false;
-        }
+
+        currState = this.gamepad.getTrigger(trigger) > this.threshold;
         
         lastState = currState;
     }
@@ -50,11 +46,7 @@ public class TriggerReader implements KeyReader {
      **/
     public void readValue() {
         lastState = currState;
-        if (this.gamepad.getTrigger(trigger) > this.threshold) {
-            currState = true;
-        } else {
-            currState = false;
-        }
+        currState = this.gamepad.getTrigger(trigger) > this.threshold;
     }
 
     /**

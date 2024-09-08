@@ -16,7 +16,7 @@ import com.arcrobotics.ftclib.trajectory.TrapezoidProfile;
  */
 @SuppressWarnings("PMD.TooManyMethods")
 public class ProfiledPIDController {
-    private PIDController m_controller;
+    private final PIDController m_controller;
     private TrapezoidProfile.State m_goal = new TrapezoidProfile.State();
     private TrapezoidProfile.State m_setpoint = new TrapezoidProfile.State();
     private TrapezoidProfile.Constraints m_constraints;

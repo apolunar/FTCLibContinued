@@ -10,7 +10,6 @@
 package com.arcrobotics.ftclib.command;
 
 import com.arcrobotics.ftclib.trajectory.TrapezoidProfile;
-import com.arcrobotics.ftclib.util.Timing;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 

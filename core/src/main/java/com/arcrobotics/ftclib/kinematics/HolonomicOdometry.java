@@ -10,7 +10,7 @@ public class HolonomicOdometry extends Odometry {
 
     private double prevLeftEncoder, prevRightEncoder, prevHorizontalEncoder;
     private Rotation2d previousAngle;
-    private double centerWheelOffset;
+    private final double centerWheelOffset;
 
     // the suppliers
     DoubleSupplier m_left, m_right, m_horizontal;

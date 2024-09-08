@@ -26,7 +26,8 @@ public class Motor implements HardwareDevice {
         RPM_117(1425.2, 117), RPM_223(753.2, 223), RPM_312(537.6, 312), RPM_435(383.6, 435),
         RPM_1150(145.6, 1150), RPM_1620(103.6, 1620), BARE(28, 6000), NONE(0, 0);
 
-        private double cpr, rpm;
+        private final double cpr;
+        private final double rpm;
 
         GoBILDA(double cpr, double rpm) {
             this.cpr = cpr;
@@ -49,7 +50,7 @@ public class Motor implements HardwareDevice {
     public enum Direction {
         FORWARD(1), REVERSE(-1);
 
-        private int val;
+        private final int val;
 
         Direction(int multiplier) {
             val = multiplier;
@@ -62,7 +63,7 @@ public class Motor implements HardwareDevice {
 
     public class Encoder {
 
-        private Supplier<Integer> m_position;
+        private final Supplier<Integer> m_position;
         private int resetVal, lastPosition;
         private Direction direction;
         private double lastTimeStamp, veloEstimate, dpp, accel, lastVelo;

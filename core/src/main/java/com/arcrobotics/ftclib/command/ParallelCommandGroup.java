@@ -92,7 +92,7 @@ public class ParallelCommandGroup extends CommandGroupBase {
 
     @Override
     public boolean isFinished() {
-        return !m_commands.values().contains(true);
+        return !m_commands.containsValue(true);
     }
 
     @Override

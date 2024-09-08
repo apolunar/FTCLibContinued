@@ -15,6 +15,6 @@ public interface InterruptAction {
     /**
      * Performs the action.
      */
-    public void doAction();
+    void doAction();
 
 }

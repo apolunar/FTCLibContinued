@@ -36,7 +36,7 @@ public abstract class PathMotionProfile {
      * @param configuredTurnSpeed     Configured turn speed.
      */
     public void processDecelerate(double[] motorSpeeds, double distanceToTarget, double configuredMovementSpeed, double configuredTurnSpeed) {
-        if (lastCallType == true)
+        if (lastCallType)
             // Call decelerate().
             decelerate(motorSpeeds, distanceToTarget, (lastDistanceToTarget - distanceToTarget) / ((System.nanoTime() - lastCallTimeStamp) * 1e9), configuredMovementSpeed, configuredTurnSpeed);
         else
@@ -57,7 +57,7 @@ public abstract class PathMotionProfile {
      * @param configuredTurnSpeed     Configured turn speed.
      */
     public void processAccelerate(double[] motorSpeeds, double distanceFromTarget, double configuredMovementSpeed, double configuredTurnSpeed) {
-        if (lastCallType == false)
+        if (!lastCallType)
             // Call accelerate().
             accelerate(motorSpeeds, distanceFromTarget, (distanceFromTarget - lastDistanceToTarget) / ((System.nanoTime() - lastCallTimeStamp) * 1e9), configuredMovementSpeed, configuredTurnSpeed);
         else

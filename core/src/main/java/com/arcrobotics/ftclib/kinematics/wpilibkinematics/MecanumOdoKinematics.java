@@ -16,7 +16,7 @@ public class MecanumOdoKinematics {
 
     private Translation2d m_prevCoR = new Translation2d();
 
-    private double wheelbaseRadius;
+    private final double wheelbaseRadius;
 
     /**
      * Constructs a mecanum drive kinematics object.

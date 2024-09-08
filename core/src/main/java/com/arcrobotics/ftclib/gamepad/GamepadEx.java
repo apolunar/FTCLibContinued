@@ -17,8 +17,8 @@ public class GamepadEx {
      */
     public Gamepad gamepad;
 
-    private HashMap<Button, ButtonReader> buttonReaders;
-    private HashMap<Button, GamepadButton> gamepadButtons;
+    private final HashMap<Button, ButtonReader> buttonReaders;
+    private final HashMap<Button, GamepadButton> gamepadButtons;
 
     private final Button[] buttons = {
             Button.Y, Button.X, Button.A, Button.B, Button.LEFT_BUMPER, Button.RIGHT_BUMPER, Button.BACK,

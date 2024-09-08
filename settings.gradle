@@ -1,3 +1,2 @@
-include ':core:vision'
-include ':examples'
+rootProject.name = "FTCLibContinued"
 include ':core'

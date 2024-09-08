@@ -20,7 +20,7 @@ public class ButtonReader implements KeyReader {
     /**
      * the state of the button
      */
-    private BooleanSupplier buttonState;
+    private final BooleanSupplier buttonState;
 
     /**
      * Initializes controller variables

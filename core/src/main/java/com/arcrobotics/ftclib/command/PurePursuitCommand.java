@@ -11,9 +11,9 @@ import com.arcrobotics.ftclib.purepursuit.Waypoint;
  */
 public class PurePursuitCommand extends CommandBase {
 
-    private MecanumDrive m_drive;
-    private OdometrySubsystem m_odometry;
-    private Path m_path;
+    private final MecanumDrive m_drive;
+    private final OdometrySubsystem m_odometry;
+    private final Path m_path;
 
     public PurePursuitCommand(MecanumDrive drive, OdometrySubsystem odometry, Waypoint... waypoints) {
         m_path = new Path(waypoints);

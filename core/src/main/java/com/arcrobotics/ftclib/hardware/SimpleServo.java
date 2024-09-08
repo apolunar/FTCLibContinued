@@ -8,7 +8,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 
 public class SimpleServo implements ServoEx {
 
-    private Servo servo;
+    private final Servo servo;
 
     //always stored internally as radians
     private double maxAngle, minAngle;

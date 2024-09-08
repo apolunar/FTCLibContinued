@@ -19,27 +19,27 @@ public interface Waypoint {
      *
      * @return this WayPoint's type.
      */
-    public WaypointType getType();
+    WaypointType getType();
 
     /**
      * Returns this Waypoint's position.
      *
      * @return this Waypoint's position.
      */
-    public Pose2d getPose();
+    Pose2d getPose();
 
     /**
      * Returns the follow distance for this waypoint.
      *
      * @return the follow distance for this waypoint.
      */
-    public double getFollowDistance();
+    double getFollowDistance();
 
     /**
      * Returns the timeout period of this waypoint.
      *
      * @return the timeout period of this waypoint.
      */
-    public long getTimeout();
+    long getTimeout();
 
 }

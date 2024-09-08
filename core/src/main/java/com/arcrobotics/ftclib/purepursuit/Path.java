@@ -14,6 +14,7 @@ import com.arcrobotics.ftclib.purepursuit.waypoints.InterruptWaypoint;
 import com.arcrobotics.ftclib.purepursuit.waypoints.PointTurnWaypoint;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -73,8 +74,8 @@ public class Path extends ArrayList<Waypoint> {
     private Translation2d lastKnownIntersection;
 
     // Action lists
-    private List<TriggeredAction> triggeredActions;
-    private Queue<InterruptWaypoint> interruptActionQueue;
+    private final List<TriggeredAction> triggeredActions;
+    private final Queue<InterruptWaypoint> interruptActionQueue;
 
     /**
      * Constructs an empty path and sets all settings to their defaults. Use add() to add waypoints.
@@ -158,8 +159,10 @@ public class Path extends ArrayList<Waypoint> {
                 boolean pathAborted = true;
                 // If the has stopped, then the path has timed out or lost the path.
                 for (double power : motorPowers)
-                    if (power != 0)
+                    if (power != 0) {
                         pathAborted = false;
+                        break;
+                    }
                 if (pathAborted)
                     return false;
             }
@@ -484,8 +487,8 @@ public class Path extends ArrayList<Waypoint> {
                 // Set the target angle.
                 ta = ((GeneralWaypoint) get(intersection.waypointIndex + 1)).getPreferredAngle();
             } else {
-                double tempTy = ((GeneralWaypoint) get(intersection.waypointIndex + 1)).getPose().getTranslation().getY();
-                double tempTx = ((GeneralWaypoint) get(intersection.waypointIndex + 1)).getPose().getTranslation().getX();
+                double tempTy = get(intersection.waypointIndex + 1).getPose().getTranslation().getY();
+                double tempTx = get(intersection.waypointIndex + 1).getPose().getTranslation().getX();
                 // Calculate the target angle.
                 ta = Math.atan2(tempTy - cy, tempTx - cx);
                 if (PurePursuitUtil.rotationEqualsWithBuffer(robotPos.getHeading(), ta, waypoint.getRotationBuffer()))
@@ -538,7 +541,7 @@ public class Path extends ArrayList<Waypoint> {
                 if (waypoint.usingPreferredAngle() && !PurePursuitUtil.rotationEqualsWithBuffer(robotPos.getHeading(), waypoint.getPreferredAngle(), waypoint.getRotationBuffer()))
                     ta = waypoint.getPreferredAngle();
                 else {
-                    ((EndWaypoint) waypoint).setTraversed();
+                    waypoint.setTraversed();
                     return new double[]{0, 0, 0};
                 }
             } else if (((GeneralWaypoint) get(intersection.waypointIndex + 1)).usingPreferredAngle()) {
@@ -553,8 +556,8 @@ public class Path extends ArrayList<Waypoint> {
                 // Set the target angle.
                 ta = ((GeneralWaypoint) get(intersection.waypointIndex + 1)).getPreferredAngle();
             } else {
-                double tempTy = ((GeneralWaypoint) get(intersection.waypointIndex + 1)).getPose().getTranslation().getY();
-                double tempTx = ((GeneralWaypoint) get(intersection.waypointIndex + 1)).getPose().getTranslation().getX();
+                double tempTy = get(intersection.waypointIndex + 1).getPose().getTranslation().getY();
+                double tempTx = get(intersection.waypointIndex + 1).getPose().getTranslation().getX();
                 // Calculate the target angle.
                 ta = Math.atan2(tempTy - cy, tempTx - cx);
                 if (PurePursuitUtil.rotationEqualsWithBuffer(robotPos.getHeading(), ta, waypoint.getRotationBuffer())) {
@@ -717,8 +720,7 @@ public class Path extends ArrayList<Waypoint> {
      * @return This path, used for chaining methods.
      */
     public Path addTriggeredActions(TriggeredAction... actions) {
-        for (TriggeredAction triggeredAction : actions)
-            triggeredActions.add(triggeredAction);
+        Collections.addAll(triggeredActions, actions);
         return this;
     }
 

@@ -13,28 +13,28 @@ public interface Subsystem {
      * The initilizer method. This prepares the hardware for the
      * actual movement or activation of the mechanism.
      */
-    public void initialize();
+    void initialize();
 
     /**
      * The reset method. Returns the subsystem back to its original
      * position and resets any saved data.
      */
-    public void reset();
+    void reset();
 
     /**
      * Loops the subsystem until {@link #stop()} is called.
      */
-    public void loop();
+    void loop();
 
     /**
      * Halts the performance of the subsystem, bringing all
      * hardware devices to a stop.
      */
-    public void stop();
+    void stop();
 
     /**
      * Deactivates the subsystem, rendering it unusable until the
      * next initialization.
      */
-    public void disable();
+    void disable();
 }

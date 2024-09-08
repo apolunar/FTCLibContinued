@@ -45,9 +45,7 @@ public final class PurePursuitUtil {
     public static boolean isInFront(Translation2d linePoint1, Translation2d linePoint2, Translation2d point1, Translation2d point2) {
         if (linePoint1.getX() < linePoint2.getX() && point1.getX() < point2.getX())
             return false;
-        if (linePoint1.getY() < linePoint2.getY() && point1.getY() < point2.getY())
-            return false;
-        return true;
+        return !(linePoint1.getY() < linePoint2.getY()) || !(point1.getY() < point2.getY());
     }
 
     /**
@@ -60,8 +58,7 @@ public final class PurePursuitUtil {
      */
     public static boolean positionEqualsWithBuffer(Translation2d p1, Translation2d p2, double buffer) {
         if (p1.getX() - buffer < p2.getX() && p1.getX() + buffer > p2.getX())
-            if (p1.getY() - buffer < p2.getY() && p1.getY() + buffer > p2.getY())
-                return true;
+            return p1.getY() - buffer < p2.getY() && p1.getY() + buffer > p2.getY();
         return false;
     }
 
@@ -74,9 +71,7 @@ public final class PurePursuitUtil {
      * @return True if the point are equal within a margin or error, false otherwise.
      */
     public static boolean rotationEqualsWithBuffer(double a1, double a2, double buffer) {
-        if (a1 - buffer < a2 && a1 + buffer > a2)
-            return true;
-        return false;
+        return a1 - buffer < a2 && a1 + buffer > a2;
     }
 
     /**

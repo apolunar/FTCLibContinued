@@ -43,15 +43,15 @@ import java.util.Objects;
  */
 public class TrapezoidProfile {
     // The direction of the profile, either 1 for forwards or -1 for inverted
-    private int m_direction;
+    private final int m_direction;
 
-    private Constraints m_constraints;
-    private State m_initial;
-    private State m_goal;
+    private final Constraints m_constraints;
+    private final State m_initial;
+    private final State m_goal;
 
-    private double m_endAccel;
-    private double m_endFullSpeed;
-    private double m_endDeccel;
+    private final double m_endAccel;
+    private final double m_endFullSpeed;
+    private final double m_endDeccel;
 
     public static class Constraints {
         @SuppressWarnings("MemberName")

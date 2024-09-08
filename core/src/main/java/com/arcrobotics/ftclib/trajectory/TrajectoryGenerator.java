@@ -23,12 +23,13 @@ import com.arcrobotics.ftclib.spline.SplineParameterizer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.function.BiConsumer;
 
 public final class TrajectoryGenerator {
     private static final Trajectory kDoNothingTrajectory =
-            new Trajectory(Arrays.asList(new Trajectory.State()));
+            new Trajectory(Collections.singletonList(new Trajectory.State()));
     private static BiConsumer<String, StackTraceElement[]> errorFunc;
 
     /**
